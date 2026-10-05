@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# Build / preview scratch
+ref/
+pyref/
+*.log
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Generated book PDF is a build artifact — not tracked. Run build_csharp_book.py
+# to regenerate it locally.
+*.pdf

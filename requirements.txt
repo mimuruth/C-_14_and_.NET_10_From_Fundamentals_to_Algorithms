@@ -1,0 +1,6 @@
+# Core dependency — the only package required to build the book.
+reportlab==5.0.1
+
+# Optional: used only for post-build verification/preview (page counts,
+# rendering cover/section pages to PNG). Not needed to generate the PDF.
+# pymupdf==1.28.2
