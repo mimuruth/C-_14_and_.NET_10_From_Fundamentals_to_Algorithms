@@ -341,18 +341,23 @@ class BookDocTemplate(BaseDocTemplate):
         # the top gradient bar down past the author block; footer sits on white).
         left = 20 * mm
         right = PAGE_W - 20 * mm
+        # Panel extends a little beyond the text margins so the title and the
+        # author / edition blocks never touch the panel edges.
+        panel_left = 12 * mm
+        panel_right = PAGE_W - 12 * mm
         panel_top = PAGE_H - 19.5 * mm
-        panel_bottom = 30 * mm
+        panel_bottom = 28 * mm
         canvas.setFillColor(WHITE)
         canvas.rect(0, 0, PAGE_W, PAGE_H, fill=1, stroke=0)
         canvas.setFillColor(COVER_BG)
-        canvas.rect(left, panel_bottom, right - left, panel_top - panel_bottom, fill=1, stroke=0)
+        canvas.rect(panel_left, panel_bottom, panel_right - panel_left,
+                    panel_top - panel_bottom, fill=1, stroke=0)
         # Faint oversized diamond watermark behind the art, lower third.
         canvas.setFillColor(colors.HexColor("#ECE6FA"))
         canvas.ellipse(PAGE_W / 2 - 52 * mm, 96 * mm, PAGE_W / 2 + 52 * mm, 170 * mm,
                        fill=1, stroke=0)
         # Top gradient bar spanning the full panel width, at the panel's top edge.
-        bar_w = right - left
+        bar_w = panel_right - panel_left
         bar_h = 4.5 * mm
         bar_y = panel_top - bar_h
         steps = 170
@@ -368,7 +373,7 @@ class BookDocTemplate(BaseDocTemplate):
                     b = a_c.blue + (b_c.blue - a_c.blue) * local
                     canvas.setFillColorRGB(r, g, b)
                     break
-            canvas.rect(left + i * seg, bar_y, seg + 0.6, bar_h, fill=1, stroke=0)
+            canvas.rect(panel_left + i * seg, bar_y, seg + 0.6, bar_h, fill=1, stroke=0)
         # Author block (bottom-left) and edition block (bottom-right), pinned
         # above the footer so the centered art never crowds them.
         canvas.setFillColor(MUTED)
