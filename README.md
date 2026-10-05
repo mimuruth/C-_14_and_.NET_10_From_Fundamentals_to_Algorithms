@@ -171,5 +171,8 @@ Each chapter follows a consistent, teach-by-example rhythm:
 
 ## License
 
-Content and code © Michael Muruthi. Add your preferred license here before
-publishing (e.g., MIT for the code, and a separate notice for the book text).
+- **Code** (`build_csharp_book.py` and build tooling): released under the
+  [MIT License](LICENSE) © 2026 Michael Muruthi.
+- **Book content** (the generated text, prose, diagrams, and the resulting
+  PDF): © 2026 Michael Muruthi, all rights reserved. The MIT license covers
+  the generator source only, not the book's written content.
